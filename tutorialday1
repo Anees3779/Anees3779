@@ -1,0 +1,53 @@
+import pandas as pd
+df=pd.read_csv('Mall_Customers_data.csv')
+#Calculating mean
+def find_mean(data):
+    total=sum(data)
+    return total/len(data)
+#Calculating median
+def find_median(data):
+    data.sort()
+    if n % 2 != 0:
+        mid1 = values[n / 2 - 1]
+        mid2 = values[n / 2]
+        median = (mid1 + mid2) / 2
+    else:
+        median = values[n / 2]
+    return median
+#Calculating mode
+def find_mode(data):
+    temp_data={}
+    for n in data:
+        if n in temp_data:
+            temp_data[n]+=1
+        else:
+            temp_data[n]=1
+    max_data=max(temp_data.values())
+    mode=[key for key, value in temp_data.items() if value == max_data]
+    return mode
+age=df['Age']
+mean_age = find_mean(age)
+median_age = find_median(age)
+mode_age = find_mode(age)
+
+annual_income = df['Annual Income']
+mean_annual_income=find_mean(annual_income)
+median_annual_income=find_median(annual_income)
+mode_annual_income=find_mode(annual_income)
+
+spendings = df['Spending_Score']
+mean_spending = find_mean(spendings)
+median_spendings = find_median(spendings)
+mode_spendings = find_mode(spendings)
+
+print("Mean age = ",mean_age)
+print("Mean Annual Income = ",mean_annual_income)
+print("Mean Spending Score = ",mean_spendings)
+
+print("Median of Age = ",median_age)
+print("Median of Annual Income = ",median_annual_income)
+print("Median of Spending Score = ",meadian_spendings)
+
+print("Mode Age = ",mode_age)
+print("Mode Annual Income = ",mode_annual_income)
+print("Mode Spending Score = ",mode_spendings)
